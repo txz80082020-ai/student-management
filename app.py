@@ -1,17 +1,11 @@
 students = [
-    {"id": 1, "name": "Nguyen Van A", "email": "a@example.com"},
-    {"id": 2, "name": "Tran Thi B", "email": "b@example.com"}
+    {"id": 1, "name": "Nguyen Van A"},
+    {"id": 2, "name": "Tran Thi B"}
 ]
 
-def get_students():
-    return students
-
-def get_student(student_id):
-    for student in students:
-        if student["id"] == student_id:
-            return student
-    return None
+def search_students(query):
+    query = query.lower()
+    return [s for s in students if query in s["name"].lower()]
 
 if __name__ == "__main__":
-    print(get_students())
-	print(search_students("Nguyen"))
+    print(search_students("Nguyen"))
